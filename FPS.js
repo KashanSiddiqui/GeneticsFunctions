@@ -39,8 +39,16 @@ const population = (initial_population_size, gene_count) => { // calculate initi
         if(array[i][3]<minNum){
             minNum=array[i][3];
         }
+        
     }
-    console.log(minNum,"minmum")
+    // console.log(minNum,"minmum before")
+    minNum=Math.abs(minNum)
+    // console.log(minNum,"after")
+    for(let i=0;i<initial_population_size;i++){
+        array[i][3]=array[i][3]+minNum+1;
+        // console.log(array[i][3]+minNum+1);
+        // console.log(array[i][3]);
+    }
     return (array)
 }
 
@@ -65,9 +73,9 @@ for(var i=1; i<array.length; i++){
 return relative_boundries_array;
 }
 
-let initial_population_arr = population(10, 3);
-console.log(initial_population_arr);
+let initial_population_arr = population(5, 3);
+// console.log(initial_population_arr);
 // let total_fitness_value = total_fitness_calculator(initial_population_arr);
 let FPS_array = FPS( initial_population_arr);
-console.log(FPS_array);
+// console.log(FPS_array);
 // console.log(initial_population_arr)
