@@ -51,9 +51,11 @@ const BTS = (array) => {
         do {
              random1 = random_number_for_parent_selection(array.length);
              random2 = random_number_for_parent_selection(array.length);
+             console.log(array[random1][3])
+             console.log(array[random2][3])
         }
-        while(random1 === random2);
-        if(random1 > random2) {
+        while(array[random1][3] === array[random2][3]);
+        if(array[random1][3] > array[random2][3]) {
             parents[i] = random1;
         }else {
             parents[i] = random2;
@@ -61,6 +63,8 @@ const BTS = (array) => {
     }
     return parents;
 }
+
+
 
 let initial_population_arr = population(25, 3);
 let bts_array = BTS(initial_population_arr);
