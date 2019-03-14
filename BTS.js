@@ -59,7 +59,9 @@ const BTS = (array) => {
             parents[i] = random2;
         }
     }
+    return parents;
 }
 
 let initial_population_arr = population(25, 3);
 let bts_array = BTS(initial_population_arr);
+console.log(bts_array)

@@ -19,6 +19,7 @@ function random_number_for_z() {
 
 const population = (initial_population_size, gene_count) => { // calculate initial population
     let array = [];
+    let minNum=0;
     for (let i = 0; i < initial_population_size; i++) {
         array[i] = [];
         for (let j = 0; j < gene_count; j++) {
@@ -35,7 +36,11 @@ const population = (initial_population_size, gene_count) => { // calculate initi
             }
         }
         array[i][3] = fitness_function_equation(array[i][0], array[i][1], array[i][2])
+        if(array[i][3]<minNum){
+            minNum=array[i][3];
+        }
     }
+    console.log(minNum,"minmum")
     return (array)
 }
 
@@ -45,7 +50,7 @@ const total_fitness_calculator = (array) =>  {
     for (let i = 0; i < array.length; i++) {
         sum += array[i][3];
     }
-    console.log(sum);
+    // console.log(sum);
     return sum;
 } 
 
@@ -60,8 +65,9 @@ for(var i=1; i<array.length; i++){
 return relative_boundries_array;
 }
 
-let initial_population_arr = population(3, 3);
+let initial_population_arr = population(10, 3);
+console.log(initial_population_arr);
 // let total_fitness_value = total_fitness_calculator(initial_population_arr);
 let FPS_array = FPS( initial_population_arr);
 console.log(FPS_array);
-console.log(initial_population_arr)
+// console.log(initial_population_arr)
